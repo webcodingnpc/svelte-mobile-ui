@@ -1,0 +1,63 @@
+{
+  "name": "svelte-mobile-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "基于 Svelte 5 的移动端 UI 组件库，提供 70+ 组件",
+  "keywords": [
+    "svelte",
+    "svelte5",
+    "mobile",
+    "ui",
+    "components",
+    "svelte-mobile-ui"
+  ],
+  "license": "MIT",
+  "author": "free-walk",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webcodingnpc/svelte-mobile-ui.git"
+  },
+  "svelte": "./index.ts",
+  "main": "./dist/svelte-mobile-ui.cjs",
+  "module": "./dist/svelte-mobile-ui.mjs",
+  "types": "./dist/types/types.ts",
+  "unpkg": "./dist/svelte-mobile-ui.iife.js",
+  "jsdelivr": "./dist/svelte-mobile-ui.iife.js",
+  "exports": {
+    ".": {
+      "svelte": "./index.ts",
+      "import": "./dist/svelte-mobile-ui.mjs",
+      "require": "./dist/svelte-mobile-ui.cjs",
+      "default": "./dist/svelte-mobile-ui.mjs"
+    },
+    "./dist/styles.css": "./dist/styles.css",
+    "./styles/*": "./styles/*",
+    "./components/*": "./components/*",
+    "./utils/*": "./utils/*"
+  },
+  "files": [
+    "dist/",
+    "components/",
+    "styles/",
+    "utils/",
+    "index.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:docs": "node scripts/build-docs.js"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.7",
+    "sass": "^1.99.0",
+    "svelte": "^5.55.1"
+  }
+}

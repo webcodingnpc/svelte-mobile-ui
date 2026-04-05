@@ -1,38 +1,40 @@
 # svelte-mobile-ui
 
-基于 Svelte 5 的移动端 UI 组件库，提供 80+ 高质量组件。
+A mobile UI component library built on **Svelte 5**, providing 80+ high-quality components.
 
-## 特性
+[中文文档](./README.zh-CN.md)
 
-- 🎯 **80+ 组件** — 覆盖移动端开发常用场景
-- ⚡ **Svelte 5** — 基于 Svelte 5 Runes 模式，性能优异
-- 📦 **按需引入** — 支持全量引入和按需引入
-- 🌐 **CDN 支持** — 提供 IIFE 格式，可直接通过 CDN 使用
-- 🎨 **主题定制** — 基于 CSS 变量，轻松定制主题
-- 📱 **移动端优先** — 专为移动端设计，触控友好
+## Features
 
-## 安装
+- **80+ components** covering common mobile development scenarios
+- **Svelte 5** — built on Svelte 5 Runes mode for excellent performance
+- **On-demand import** — supports both full and tree-shakable imports
+- **CDN support** — IIFE format available for direct CDN usage
+- **Theme customization** — CSS variable-based theming
+- **Mobile-first** — designed for mobile, touch-friendly
+
+## Installation
 
 ```bash
 npm install svelte-mobile-ui
 ```
 
-## 快速开始
+## Quick Start
 
-### ES Module 引入
+### ES Module
 
 ```ts
 import { Button, Cell, Icon } from 'svelte-mobile-ui'
 import 'svelte-mobile-ui/dist/styles.css'
 ```
 
-### 按需引入
+### On-Demand Import
 
 ```ts
 import { Button } from 'svelte-mobile-ui/components/Button'
 ```
 
-### CDN 引入
+### CDN
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/svelte-mobile-ui/dist/styles.css" />
@@ -42,104 +44,104 @@ import { Button } from 'svelte-mobile-ui/components/Button'
 </script>
 ```
 
-## 组件列表
+## Component List
 
-### 基础组件
-- `Button` — 按钮
-- `Cell` / `CellGroup` — 单元格
-- `Icon` — 图标
-- `ImageComp` — 图片
-- `Popup` — 弹出层
-- `Overlay` — 遮罩层
-- `Toast` — 轻提示
-- `ConfigProvider` — 全局配置
+### Basic Components
+- `Button` — Button
+- `Cell` / `CellGroup` — Cell
+- `Icon` — Icon
+- `ImageComp` — Image
+- `Popup` — Popup
+- `Overlay` — Overlay
+- `Toast` — Toast
+- `ConfigProvider` — Global Configuration
 
-### 表单组件
-- `Calendar` — 日历
-- `Cascader` — 级联选择
-- `Checkbox` / `CheckboxGroup` — 复选框
-- `DatePicker` — 日期选择
-- `Field` — 输入框
-- `Form` — 表单
-- `NumberKeyboard` — 数字键盘
-- `PasswordInput` — 密码输入框
-- `Picker` / `PickerGroup` — 选择器
-- `Radio` / `RadioGroup` — 单选
-- `Rate` — 评分
-- `Search` — 搜索
-- `Slider` — 滑块
-- `Stepper` — 步进器
-- `Switch` — 开关
-- `TimePicker` — 时间选择
-- `Uploader` — 文件上传
+### Form Components
+- `Calendar` — Calendar
+- `Cascader` — Cascader
+- `Checkbox` / `CheckboxGroup` — Checkbox
+- `DatePicker` — Date Picker
+- `Field` — Input Field
+- `Form` — Form
+- `NumberKeyboard` — Number Keyboard
+- `PasswordInput` — Password Input
+- `Picker` / `PickerGroup` — Picker
+- `Radio` / `RadioGroup` — Radio
+- `Rate` — Rate
+- `Search` — Search
+- `Slider` — Slider
+- `Stepper` — Stepper
+- `Switch` — Switch
+- `TimePicker` — Time Picker
+- `Uploader` — File Upload
 
-### 反馈组件
-- `ActionSheet` — 动作面板
-- `Dialog` — 弹出框
-- `Loading` — 加载
-- `Notify` — 消息提示
-- `Popover` — 气泡弹出框
-- `PullRefresh` — 下拉刷新
-- `ShareSheet` — 分享面板
-- `SwipeCell` — 滑动单元格
-- `FloatingPanel` — 浮动面板
-- `FloatingBubble` — 浮动气泡
+### Feedback Components
+- `ActionSheet` — Action Sheet
+- `Dialog` — Dialog
+- `Loading` — Loading
+- `Notify` — Notification
+- `Popover` — Popover
+- `PullRefresh` — Pull to Refresh
+- `ShareSheet` — Share Sheet
+- `SwipeCell` — Swipe Cell
+- `FloatingPanel` — Floating Panel
+- `FloatingBubble` — Floating Bubble
 
-### 展示组件
-- `Badge` — 徽标
-- `Circle` — 环形进度条
-- `Collapse` / `CollapseItem` — 折叠面板
-- `CountDown` — 倒计时
-- `Divider` — 分割线
-- `Empty` — 空状态
-- `Highlight` — 高亮文本
-- `ImagePreview` — 图片预览
-- `NoticeBar` — 通知栏
-- `Progress` — 进度条
-- `Skeleton` — 骨架屏
-- `Steps` / `Step` — 步骤条
-- `Swipe` / `SwipeItem` — 轮播
-- `Tag` — 标签
-- `TextEllipsis` — 文本省略
-- `Watermark` — 水印
-- `Barrage` — 弹幕
-- `RollingText` — 翻滚文本
-- `List` — 列表
+### Display Components
+- `Badge` — Badge
+- `Circle` — Circle Progress
+- `Collapse` / `CollapseItem` — Collapse
+- `CountDown` — Countdown
+- `Divider` — Divider
+- `Empty` — Empty State
+- `Highlight` — Text Highlight
+- `ImagePreview` — Image Preview
+- `NoticeBar` — Notice Bar
+- `Progress` — Progress
+- `Skeleton` — Skeleton
+- `Steps` / `Step` — Steps
+- `Swipe` / `SwipeItem` — Swipe
+- `Tag` — Tag
+- `TextEllipsis` — Text Ellipsis
+- `Watermark` — Watermark
+- `Barrage` — Barrage
+- `RollingText` — Rolling Text
+- `List` — List
 
-### 导航组件
-- `ActionBar` — 动作栏
-- `BackTop` — 回到顶部
-- `Grid` / `GridItem` — 宫格
-- `IndexBar` / `IndexAnchor` — 索引栏
-- `NavBar` — 导航栏
-- `Pagination` — 分页
-- `Sidebar` / `SidebarItem` — 侧边导航
-- `Sticky` — 粘性布局
-- `Tabs` / `Tab` — 标签页
-- `Tabbar` / `TabbarItem` — 标签栏
-- `TreeSelect` — 分类选择
+### Navigation Components
+- `ActionBar` — Action Bar
+- `BackTop` — Back to Top
+- `Grid` / `GridItem` — Grid
+- `IndexBar` / `IndexAnchor` — Index Bar
+- `NavBar` — Navigation Bar
+- `Pagination` — Pagination
+- `Sidebar` / `SidebarItem` — Sidebar
+- `Sticky` — Sticky
+- `Tabs` / `Tab` — Tabs
+- `Tabbar` / `TabbarItem` — Tab Bar
+- `TreeSelect` — Tree Select
 
-### 布局组件
-- `Col` — 列
-- `Row` — 行
-- `Space` — 间距
+### Layout Components
+- `Col` — Column
+- `Row` — Row
+- `Space` — Space
 
-### 业务组件
-- `AddressEdit` — 地址编辑
-- `AddressList` — 地址列表
-- `Area` — 省市区选择
-- `Card` — 商品卡片
-- `ContactCard` — 联系人卡片
-- `ContactEdit` — 联系人编辑
-- `ContactList` — 联系人列表
-- `Coupon` / `CouponCell` / `CouponList` — 优惠券
-- `Signature` — 签名
-- `SubmitBar` — 提交订单栏
-- `DropdownMenu` / `DropdownItem` — 下拉菜单
+### Business Components
+- `AddressEdit` — Address Edit
+- `AddressList` — Address List
+- `Area` — Area Selector
+- `Card` — Product Card
+- `ContactCard` — Contact Card
+- `ContactEdit` — Contact Edit
+- `ContactList` — Contact List
+- `Coupon` / `CouponCell` / `CouponList` — Coupon
+- `Signature` — Signature
+- `SubmitBar` — Submit Bar
+- `DropdownMenu` / `DropdownItem` — Dropdown Menu
 
-## 主题定制
+## Theme Customization
 
-通过 CSS 变量定制主题：
+Customize the theme via CSS variables:
 
 ```css
 :root {
@@ -150,23 +152,23 @@ import { Button } from 'svelte-mobile-ui/components/Button'
 }
 ```
 
-或使用 `ConfigProvider` 组件：
+Or use the `ConfigProvider` component:
 
 ```svelte
 <ConfigProvider theme={{ primaryColor: '#1989fa' }}>
-  <Button type="primary">主题按钮</Button>
+  <Button type="primary">Themed Button</Button>
 </ConfigProvider>
 ```
 
-## 兼容性
+## Compatibility
 
-| 格式 | 文件 | 用途 |
-|---|---|---|
-| ESM | `dist/svelte-mobile-ui.mjs` | `import` 语法 |
-| CJS | `dist/svelte-mobile-ui.cjs` | `require()` 语法 |
-| IIFE | `dist/svelte-mobile-ui.iife.js` | CDN / `<script>` 标签 |
-| CSS | `dist/styles.css` | 全局样式 |
-| Svelte 源码 | `index.ts` | Svelte 项目直接引用 |
+| Format | File | Usage |
+|--------|------|-------|
+| ESM | `dist/svelte-mobile-ui.mjs` | `import` syntax |
+| CJS | `dist/svelte-mobile-ui.cjs` | `require()` syntax |
+| IIFE | `dist/svelte-mobile-ui.iife.js` | CDN / `<script>` tag |
+| CSS | `dist/styles.css` | Global styles |
+| Svelte Source | `index.ts` | Direct Svelte project import |
 
 ## License
 

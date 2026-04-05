@@ -1,6 +1,6 @@
 {
   "name": "svelte-mobile-ui",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "基于 Svelte 5 的移动端 UI 组件库，提供 70+ 组件",
   "keywords": [
@@ -42,7 +42,7 @@
     "utils/",
     "index.ts",
     "LICENSE",
-    "README.md"
+    "README.md","README.zh-CN.md"
   ],
   "sideEffects": [
     "**/*.css",

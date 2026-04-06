@@ -3,7 +3,7 @@
  * 输出 ESM (.mjs) / CJS (.cjs) / IIFE (.iife.js) + CSS + 类型声明
  */
 import esbuild from 'esbuild'
-import { compile, preprocess } from 'svelte/compiler'
+import { compile, compileModule, preprocess } from 'svelte/compiler'
 import { transform } from 'esbuild'
 import * as sass from 'sass'
 import fs from 'fs'
@@ -15,17 +15,41 @@ const ROOT = path.resolve(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 const ENTRY = path.join(ROOT, 'index.ts')
 
-/** esbuild 插件：编译 .svelte 文件 */
+/** esbuild 插件：编译 .svelte 和 .svelte.ts 文件 */
 function sveltePlugin() {
     return {
         name: 'svelte',
         setup(build) {
-            build.onResolve({ filter: /\.svelte$/ }, (args) => ({
-                path: path.isAbsolute(args.path)
+            build.onResolve({ filter: /\.svelte$/ }, (args) => {
+                const resolved = path.isAbsolute(args.path)
                     ? args.path
-                    : path.resolve(args.resolveDir, args.path),
-                namespace: 'file',
-            }))
+                    : path.resolve(args.resolveDir, args.path)
+
+                // 优先匹配 .svelte.ts 模块文件
+                if (fs.existsSync(resolved + '.ts')) {
+                    return { path: resolved + '.ts', namespace: 'file' }
+                }
+                return { path: resolved, namespace: 'file' }
+            })
+
+            // 编译 .svelte.ts 模块文件（Svelte 5 Runes 模块）
+            build.onLoad({ filter: /\.svelte\.ts$/ }, async (args) => {
+                const source = fs.readFileSync(args.path, 'utf-8')
+                const tsResult = await transform(source, {
+                    loader: 'ts',
+                    tsconfigRaw: '{ "compilerOptions": { "verbatimModuleSyntax": true } }',
+                })
+                const compiled = compileModule(tsResult.code, {
+                    filename: args.path,
+                    generate: 'client',
+                    dev: false,
+                })
+                return {
+                    contents: compiled.js.code,
+                    loader: 'js',
+                    resolveDir: path.dirname(args.path),
+                }
+            })
 
             build.onLoad({ filter: /\.svelte$/ }, async (args) => {
                 const source = fs.readFileSync(args.path, 'utf-8')
@@ -63,7 +87,7 @@ function sveltePlugin() {
 
                 // 过滤 a11y 和常见组件库警告
                 for (const warning of compiled.warnings) {
-                    if (warning.code?.startsWith('a11y_') || warning.code === 'state_referenced_locally') continue
+                    if (warning.code?.startsWith('a11y_') || warning.code === 'state_referenced_locally' || warning.code === 'css_unused_selector') continue
                     console.warn(`[svelte] ${filename}: ${warning.message}`)
                 }
 
